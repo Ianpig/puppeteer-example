@@ -11,7 +11,7 @@ const devices = require("puppeteer/DeviceDescriptors");
   await page.screenshot({ path: "./screenshot_google.png" });
   await page.evaluate(() => {
     document.querySelector("input[type='search']").value = "corona virus";
-    document.querySelector("button[aria-label='Google 搜尋']").click();
+    document.querySelector("button[jsaction='click:.CLIENT']").click();
   });
   // await page.click("button[type='button']");
   await page.waitForNavigation();

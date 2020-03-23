@@ -1,3 +1,4 @@
+require('dotenv').config();
 const puppeteer = require("puppeteer");
 const devices = require("puppeteer/DeviceDescriptors");
 
@@ -10,7 +11,7 @@ const devices = require("puppeteer/DeviceDescriptors");
   const page = await browser.newPage();
   await page.emulate(devices["iPhone 7"]);
   await page.goto(
-    "https://www.feversocial.com/promo/join?promoid=134230&scenes=pc&test=LMI9VigaGiYb3xgi5FSJfeP09GzVsUTJNIPjOPkJA93X10diOiuaPBOIA4cefPjMQ2S3lIrugYHHd7h1cL1RrgV3Yuc+IofO8rQcr5Jp2Zs="
+    "https://www.feversocial.com/promo/join?promoid=134364&scenes=pc&parent=https://feversocial.com/promo-28794-134364"
   );
   await page.waitForSelector("#e2e-login-button", {
     visible: true
@@ -20,9 +21,8 @@ const devices = require("puppeteer/DeviceDescriptors");
     visible: true
   });
   await page.evaluate(() => {
-    document.querySelector("#email_input_container input").value =
-      process.env.fbaccount;
-    document.querySelector("input[type='password']").value = process.env.password;
+    document.querySelector("#email_input_container input").value = process.env.FBACCOUNT;
+    document.querySelector("input[type='password']").value = process.env.FBPASSWORD;
     document.querySelector("button[name='login']").click();
   });
   await page.waitForSelector("button[name='__CONFIRM__']", {
@@ -31,9 +31,10 @@ const devices = require("puppeteer/DeviceDescriptors");
   await page.evaluate(() => {
     document.querySelector("button[name='__CONFIRM__']").click();
   });
-  await page.waitForSelector("button", {
+  await page.waitForSelector("div[type='0']", {
     visible: true
   });
+  await page.waitForFunction(`document.querySelectorAll('div[type="0"]')[1].textContent === '登出'`);
 
   await page.screenshot({ path: "example.png", fullPage: true });
 
