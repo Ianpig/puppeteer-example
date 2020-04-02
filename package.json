@@ -8,11 +8,12 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "dotenv": "^8.2.0",
     "jest": "^24.9.0",
-    "jest-environment-puppeteer": "^4.3.0",
-    "jest-puppeteer": "^4.3.0",
+    "jest-environment-puppeteer": "^4.4.0",
+    "jest-puppeteer": "^4.4.0",
     "puppeteer": "^2.1.1"
   }
 }
