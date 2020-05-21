@@ -1,18 +1,21 @@
 {
-  "name": "puppeteers",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "jest": "^24.9.0",
-    "jest-environment-puppeteer": "^4.3.0",
-    "jest-puppeteer": "^4.3.0",
-    "puppeteer": "^2.1.1"
-  }
+    "name": "@ianpig/puppeteers-example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "jest": "^24.9.0",
+        "jest-environment-puppeteer": "^4.3.0",
+        "jest-puppeteer": "^4.3.0",
+        "puppeteer": "^2.1.1"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    }
 }
